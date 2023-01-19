@@ -22,14 +22,6 @@ export class LoginComponent {
     private readonly sesionService: SessionService
   ) { }
 
-  ngOnInit() {
-    if (sessionStorage.getItem("Token")) {
-      this.sesionService.hide();
-    } else {
-      this.sesionService.show();
-    }
-  }
-
   onSubmit() {
     this.sessionService.login(this.loginForm.value).subscribe((data: any) => {
       if (data.token) {
